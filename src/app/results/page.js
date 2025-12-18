@@ -59,7 +59,7 @@ export default function Results() {
         result.push({ 
           giver: participants[i].name, 
           receiver: shuffled[i].name, 
-          giftNumber: randomMode ? shuffled[i].giftIndex : null
+          giftNumber: randomMode ? participants[i].giftIndex : null
         });
       }
     }
