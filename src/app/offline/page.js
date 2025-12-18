@@ -135,30 +135,32 @@ export default function SecretSanta() {
       <div className="snow-container"></div>
       <h1>🎄 FCY Secret Santa </h1>
       
-      <div className="mode-selection" style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-        <span>Standard</span>
-        <label className="switch">
-          <input 
-            type="checkbox" 
-            checked={isRandomMode} 
-            onChange={(e) => setIsRandomMode(e.target.checked)} 
-          />
-          <span className="slider round"></span>
-        </label>
-        <span>Randomize Gift</span>
-      </div>
+      <div className="mode-selection-container" style={{ marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <div className="mode-selection" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+          <span style={{ minWidth: '80px', textAlign: 'right', fontSize: '0.9rem' }}>Standard</span>
+          <label className="switch">
+            <input 
+              type="checkbox" 
+              checked={isRandomMode} 
+              onChange={(e) => setIsRandomMode(e.target.checked)} 
+            />
+            <span className="slider round"></span>
+          </label>
+          <span style={{ minWidth: '150px', textAlign: 'left', fontSize: '0.9rem' }}>Randomize Gift</span>
+        </div>
 
-      <div className="mode-selection" style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-        <span>Single</span>
-        <label className="switch">
-          <input 
-            type="checkbox" 
-            checked={isOttMode} 
-            onChange={(e) => setIsOttMode(e.target.checked)} 
-          />
-          <span className="slider round"></span>
-        </label>
-        <span>OTT Mode: Mix Source</span>
+        <div className="mode-selection" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+          <span style={{ minWidth: '80px', textAlign: 'right', fontSize: '0.9rem' }}>Single</span>
+          <label className="switch">
+            <input 
+              type="checkbox" 
+              checked={isOttMode} 
+              onChange={(e) => setIsOttMode(e.target.checked)} 
+            />
+            <span className="slider round"></span>
+          </label>
+          <span style={{ minWidth: '150px', textAlign: 'left', fontSize: '0.9rem' }}>Mix Source</span>
+        </div>
       </div>
       
       <form className="input-group" onSubmit={addParticipant}>

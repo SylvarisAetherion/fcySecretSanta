@@ -266,30 +266,30 @@ export default function OnlineMode() {
 
           <div className="mode-selection" style={{ margin: '15px 0', display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-               <span>Host Only</span>
+               <span style={{ minWidth: '80px', textAlign: 'right', fontSize: '0.9rem' }}>Host Only</span>
                <label className="switch">
                  <input type="checkbox" checked={hostAlsoParticipant} onChange={e => setHostAlsoParticipant(e.target.checked)} id="host-role" />
                  <span className="slider round"></span>
                </label>
-               <span>I am also a participant</span>
+               <span style={{ minWidth: '150px', textAlign: 'left', fontSize: '0.9rem' }}>I am also a participant</span>
             </div>
             
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-              <span>Standard</span>
+              <span style={{ minWidth: '80px', textAlign: 'right', fontSize: '0.9rem' }}>Standard</span>
               <label className="switch">
                 <input type="checkbox" checked={isRandomMode} onChange={e => setIsRandomMode(e.target.checked)} />
                 <span className="slider round"></span>
               </label>
-              <span>Randomize Gift</span>
+              <span style={{ minWidth: '150px', textAlign: 'left', fontSize: '0.9rem' }}>Randomize Gift</span>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
-              <span>Single</span>
+              <span style={{ minWidth: '80px', textAlign: 'right', fontSize: '0.9rem' }}>Single</span>
               <label className="switch">
                 <input type="checkbox" checked={isOttMode} onChange={e => setIsOttMode(e.target.checked)} />
                 <span className="slider round"></span>
               </label>
-              <span>OTT Mode</span>
+              <span style={{ minWidth: '150px', textAlign: 'left', fontSize: '0.9rem' }}>Mix Source</span>
             </div>
           </div>
 
