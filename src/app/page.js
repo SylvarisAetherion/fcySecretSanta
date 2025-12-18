@@ -9,6 +9,7 @@ export default function SecretSanta() {
   const [isHydrated, setIsHydrated] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [isRandomMode, setIsRandomMode] = useState(true);
+  const [isOttMode, setIsOttMode] = useState(false);
   const [draggedItemIndex, setDraggedItemIndex] = useState(null);
   const [showIndices, setShowIndices] = useState(false);
   const router = useRouter();
@@ -26,6 +27,10 @@ export default function SecretSanta() {
     if (savedShowIndices !== null) {
       setShowIndices(savedShowIndices === 'true');
     }
+    const savedOttMode = localStorage.getItem('secretSantaOttMode');
+    if (savedOttMode !== null) {
+      setIsOttMode(savedOttMode === 'true');
+    }
     setIsHydrated(true);
   }, []);
 
@@ -33,9 +38,10 @@ export default function SecretSanta() {
     if (isHydrated) {
       localStorage.setItem('secretSantaParticipants', JSON.stringify(participants));
       localStorage.setItem('secretSantaRandomMode', isRandomMode.toString());
+      localStorage.setItem('secretSantaOttMode', isOttMode.toString());
       localStorage.setItem('secretSantaShowIndices', showIndices.toString());
     }
-  }, [participants, isRandomMode, showIndices, isHydrated]);
+  }, [participants, isRandomMode, isOttMode, showIndices, isHydrated]);
 
   const addParticipant = (e) => {
     if (e) e.preventDefault();
@@ -140,6 +146,19 @@ export default function SecretSanta() {
           <span className="slider round"></span>
         </label>
         <span>Randomize Gift</span>
+      </div>
+
+      <div className="mode-selection" style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}>
+        <span>Single</span>
+        <label className="switch">
+          <input 
+            type="checkbox" 
+            checked={isOttMode} 
+            onChange={(e) => setIsOttMode(e.target.checked)} 
+          />
+          <span className="slider round"></span>
+        </label>
+        <span>OTT Mode: Mix Source</span>
       </div>
       
       <form className="input-group" onSubmit={addParticipant}>

@@ -34,7 +34,7 @@ export default function Summary() {
         <div className="summary-list">
           {pairs.map((pair, index) => (
             <div key={index} className="summary-item">
-              {isRandomMode && <span className="gift-tag">Gift #{pair.giftNumber}</span>}
+              {isRandomMode && <span className="gift-tag">Gift #{pair.giftNumber} - by {pair.giftOwner || pair.giver}</span>}
               <div className="pair-info">
                 <span className="name"><strong>{pair.giver}</strong></span>
                 <span className="gives-to">gives to</span>

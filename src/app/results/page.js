@@ -10,6 +10,7 @@ export default function Results() {
   const [isRevealing, setIsRevealing] = useState(false);
   const [displayGiftNumber, setDisplayGiftNumber] = useState(null);
   const [isRandomMode, setIsRandomMode] = useState(true);
+  const [isOttMode, setIsOttMode] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -17,6 +18,10 @@ export default function Results() {
     const savedMode = localStorage.getItem('secretSantaRandomMode');
     const randomMode = savedMode === 'true';
     setIsRandomMode(randomMode);
+
+    const savedOttMode = localStorage.getItem('secretSantaOttMode');
+    const ottMode = savedOttMode === 'true';
+    setIsOttMode(ottMode);
 
     if (!participantsData) {
       router.push('/');
@@ -38,28 +43,43 @@ export default function Results() {
 
     while (!valid && attempts < maxAttempts) {
       attempts++;
+      // Shuffle receivers
       for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
 
+      // If OTT Mode, also shuffle gift assignment
+      let availableGiftIndices = participants.map(p => p.giftIndex);
+      if (ottMode) {
+        for (let i = availableGiftIndices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [availableGiftIndices[i], availableGiftIndices[j]] = [availableGiftIndices[j], availableGiftIndices[i]];
+        }
+      }
+
       valid = true;
       result = [];
       for (let i = 0; i < participants.length; i++) {
-        // If random mode is ON, ensure giver's giftIndex is NOT the same as receiver's giftIndex
-        if (randomMode && participants[i].giftIndex === shuffled[i].giftIndex) {
+        const giver = participants[i];
+        const receiver = shuffled[i];
+        const assignedGiftIndex = ottMode ? availableGiftIndices[i] : giver.giftIndex;
+
+        // Constraint: Receiver must not receive their own gift
+        if (randomMode && assignedGiftIndex === receiver.giftIndex) {
           valid = false;
           break;
         }
         // General Secret Santa rule: cannot give to yourself
-        if (participants[i].name === shuffled[i].name) {
+        if (giver.name === receiver.name) {
           valid = false;
           break;
         }
         result.push({ 
-          giver: participants[i].name, 
-          receiver: shuffled[i].name, 
-          giftNumber: randomMode ? participants[i].giftIndex : null
+          giver: giver.name, 
+          receiver: receiver.name, 
+          giftNumber: randomMode ? assignedGiftIndex : null,
+          giftOwner: participants.find(p => p.giftIndex === assignedGiftIndex).name
         });
       }
     }
