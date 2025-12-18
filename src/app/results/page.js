@@ -7,10 +7,17 @@ export default function Results() {
   const [pairs, setPairs] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [loading, setLoading] = useState(true);
+  const [isRevealing, setIsRevealing] = useState(false);
+  const [displayGiftNumber, setDisplayGiftNumber] = useState(null);
+  const [isRandomMode, setIsRandomMode] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const participantsData = localStorage.getItem('secretSantaParticipants');
+    const savedMode = localStorage.getItem('secretSantaRandomMode');
+    const randomMode = savedMode === 'true';
+    setIsRandomMode(randomMode);
+
     if (!participantsData) {
       router.push('/');
       return;
@@ -26,8 +33,11 @@ export default function Results() {
     let shuffled = [...participants];
     let valid = false;
     let result = [];
+    let attempts = 0;
+    const maxAttempts = 500;
 
-    while (!valid) {
+    while (!valid && attempts < maxAttempts) {
+      attempts++;
       for (let i = shuffled.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
@@ -36,13 +46,29 @@ export default function Results() {
       valid = true;
       result = [];
       for (let i = 0; i < participants.length; i++) {
-        if (participants[i] === shuffled[i]) {
+        // If random mode is ON, ensure giver's giftIndex is NOT the same as receiver's giftIndex
+        if (randomMode && participants[i].giftIndex === shuffled[i].giftIndex) {
           valid = false;
           break;
         }
-        // Assign gift number 1 to N
-        result.push({ giver: participants[i], receiver: shuffled[i], giftNumber: i + 1 });
+        // General Secret Santa rule: cannot give to yourself
+        if (participants[i].name === shuffled[i].name) {
+          valid = false;
+          break;
+        }
+        result.push({ 
+          giver: participants[i].name, 
+          receiver: shuffled[i].name, 
+          giftNumber: randomMode ? shuffled[i].giftIndex : null
+        });
       }
+    }
+
+    if (!valid) {
+      // Fallback if no valid shuffling found (very unlikely with enough attempts)
+      alert("Could not find a valid pairing where no one gets their own gift index. Try adjusting the gift numbers.");
+      router.push('/');
+      return;
     }
 
     // Shuffle the results list so the order of reveals is random too
@@ -54,16 +80,57 @@ export default function Results() {
     // Add a slight delay for "animation" effect
     const timer = setTimeout(() => {
       setPairs(result);
+      localStorage.setItem('secretSantaFinalPairs', JSON.stringify(result));
       setLoading(false);
+      
+      const firstPair = result[0];
       setCurrentIndex(0);
+      
+      if (randomMode) {
+        setIsRevealing(true);
+        let count = 0;
+        const interval = setInterval(() => {
+          setDisplayGiftNumber(Math.floor(Math.random() * result.length) + 1);
+          count++;
+          if (count > 12) {
+            clearInterval(interval);
+            setDisplayGiftNumber(firstPair.giftNumber);
+            setIsRevealing(false);
+          }
+        }, 60);
+      } else {
+        setDisplayGiftNumber(null);
+      }
     }, 1000);
 
     return () => clearTimeout(timer);
   }, [router]);
 
   const nextPair = () => {
-    if (currentIndex < pairs.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+    if (currentIndex < pairs.length - 1 && !isRevealing) {
+      const nextIdx = currentIndex + 1;
+      
+      if (!isRandomMode) {
+        // Skip animation if not in random mode
+        setCurrentIndex(nextIdx);
+        return;
+      }
+
+      // Show next couple first
+      setCurrentIndex(nextIdx);
+      setIsRevealing(true);
+      
+      // Animation logic: randomize gift number display
+      let count = 0;
+      const interval = setInterval(() => {
+        setDisplayGiftNumber(Math.floor(Math.random() * pairs.length) + 1);
+        count++;
+        if (count > 12) {
+          clearInterval(interval);
+          setDisplayGiftNumber(pairs[nextIdx].giftNumber);
+          setIsRevealing(false);
+        }
+      }, 60);
     }
   };
 
@@ -97,8 +164,8 @@ export default function Results() {
       ) : (
         <div className="reveal-container">
           {currentIndex >= 0 && pairs[currentIndex] && (
-            <div className="pair-card fade-in">
-              <div className="gift-number">Gift #{pairs[currentIndex].giftNumber}</div>
+            <div className={`pair-card ${isRevealing ? 'shuffling-gift' : 'fade-in'}`}>
+              {isRandomMode && <div className={`gift-number ${isRevealing ? 'animating' : ''}`}>Gift #{displayGiftNumber}</div>}
               <div className="names">
                 <div className="person">
                   <span className="label">Gifter</span>
@@ -116,8 +183,8 @@ export default function Results() {
           <div className="controls">
             {!isLast ? (
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
-                <button className="next-btn" onClick={nextPair}>
-                  Next Pair 🎁
+                <button className="next-btn" onClick={nextPair} disabled={isRevealing}>
+                  {isRevealing ? 'Choosing... 🎲' : 'Next Pair 🎁'}
                 </button>
                 <button className="reset-btn" onClick={() => router.push('/')}>
                   Reset & Go Back ⬅️
@@ -126,9 +193,14 @@ export default function Results() {
             ) : (
               <div className="end-message">
                 <p>All gifts have been assigned! 🎅</p>
-                <button className="back-btn" onClick={() => router.push('/')}>
-                  ⬅️ Start Over
-                </button>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', alignItems: 'center' }}>
+                  <button className="next-btn" onClick={() => router.push('/summary')}>
+                    View Final List 📋
+                  </button>
+                  <button className="back-btn" onClick={() => router.push('/')}>
+                    ⬅️ Start Over
+                  </button>
+                </div>
               </div>
             )}
           </div>
@@ -151,7 +223,7 @@ export default function Results() {
           box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
           text-align: center;
           width: 100%;
-          max-width: 500px;
+          box-sizing: border-box;
         }
         .gift-number {
           font-size: 1.5rem;
@@ -236,6 +308,27 @@ export default function Results() {
         }
         .end-message {
           text-align: center;
+        }
+        .next-btn:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+        .shuffling-gift {
+          border-color: #ffd700;
+          box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+        }
+        .gift-number.animating {
+          animation: shake 0.1s infinite;
+          color: #ff4d4d;
+        }
+        @keyframes shake {
+          0% { transform: translate(1px, 1px) rotate(0deg); }
+          25% { transform: translate(-1px, -1px) rotate(-1deg); }
+          50% { transform: translate(-1px, 1px) rotate(1deg); }
+          75% { transform: translate(1px, -1px) rotate(0deg); }
+          100% { transform: translate(1px, 1px) rotate(1deg); }
         }
         .fade-in {
           animation: fadeIn 0.5s ease-out forwards;
