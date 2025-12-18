@@ -1,88 +1,15 @@
-(()=>{var e={};e.id=129,e.ids=[129],e.modules={2934:e=>{"use strict";e.exports=require("next/dist/client/components/action-async-storage.external.js")},4580:e=>{"use strict";e.exports=require("next/dist/client/components/request-async-storage.external.js")},5869:e=>{"use strict";e.exports=require("next/dist/client/components/static-generation-async-storage.external.js")},399:e=>{"use strict";e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},5315:e=>{"use strict";e.exports=require("path")},7360:e=>{"use strict";e.exports=require("url")},5864:(e,r,t)=>{"use strict";t.r(r),t.d(r,{GlobalError:()=>i.a,__next_app__:()=>p,originalPathname:()=>c,pages:()=>m,routeModule:()=>u,tree:()=>l}),t(4097),t(8295),t(5866);var s=t(3191),a=t(8716),n=t(7922),i=t.n(n),o=t(5231),d={};for(let e in o)0>["default","tree","pages","GlobalError","originalPathname","__next_app__","routeModule"].indexOf(e)&&(d[e]=()=>o[e]);t.d(r,d);let l=["",{children:["summary",{children:["__PAGE__",{},{page:[()=>Promise.resolve().then(t.bind(t,4097)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/summary/page.js"]}]},{metadata:{icon:[async e=>(await Promise.resolve().then(t.bind(t,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}]},{layout:[()=>Promise.resolve().then(t.bind(t,8295)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/layout.js"],"not-found":[()=>Promise.resolve().then(t.t.bind(t,5866,23)),"next/dist/client/components/not-found-error"],metadata:{icon:[async e=>(await Promise.resolve().then(t.bind(t,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}],m=["/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/summary/page.js"],c="/summary/page",p={require:t,loadChunk:()=>Promise.resolve()},u=new s.AppPageRouteModule({definition:{kind:a.x.APP_PAGE,page:"/summary/page",pathname:"/summary",bundlePath:"",filename:"",appPaths:[]},userland:{loaderTree:l}})},4476:(e,r,t)=>{Promise.resolve().then(t.t.bind(t,2994,23)),Promise.resolve().then(t.t.bind(t,6114,23)),Promise.resolve().then(t.t.bind(t,9727,23)),Promise.resolve().then(t.t.bind(t,9671,23)),Promise.resolve().then(t.t.bind(t,1868,23)),Promise.resolve().then(t.t.bind(t,4759,23))},657:()=>{},5115:(e,r,t)=>{Promise.resolve().then(t.bind(t,4279))},4279:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>i});var s=t(326),a=t(7577),n=t(5047);function i(){let[e,r]=(0,a.useState)([]),[t,i]=(0,a.useState)(!0),[o,d]=(0,a.useState)(!1),l=(0,n.useRouter)();return o?(0,s.jsxs)("main",{children:[s.jsx("div",{className:"snow-container"}),s.jsx("h1",{children:"Final Secret Santa List \uD83C\uDF81"}),(0,s.jsxs)("div",{className:"summary-container fade-in",children:[s.jsx("div",{className:"summary-list",children:e.map((e,r)=>(0,s.jsxs)("div",{className:"summary-item",children:[t&&(0,s.jsxs)("span",{className:"gift-tag",children:["Gift #",e.giftNumber," - by ",e.giftOwner||e.giver]}),(0,s.jsxs)("div",{className:"pair-info",children:[s.jsx("span",{className:"name",children:s.jsx("strong",{children:e.giver})}),s.jsx("span",{className:"gives-to",children:"gives to"}),s.jsx("span",{className:"name",children:s.jsx("strong",{children:e.receiver})})]})]},r))}),s.jsx("div",{className:"controls",children:s.jsx("button",{className:"back-btn",onClick:()=>l.push("/"),children:"⬅️ Start New Game"})})]}),s.jsx("style",{dangerouslySetInnerHTML:{__html:`
-        .summary-container {
-          background: rgba(255, 255, 255, 0.1);
-          padding: 2rem;
-          border-radius: 20px;
-          border: 2px solid #ffd700;
-          box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-          width: 100%;
-          box-sizing: border-box;
-          margin-top: 2rem;
-        }
-        .summary-list {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-          margin-bottom: 2rem;
-        }
-        .summary-item {
-          background: rgba(255, 255, 255, 0.05);
-          padding: 1.2rem;
-          border-radius: 12px;
-          border: 1px solid rgba(255, 215, 0, 0.2);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        .gift-tag {
-          color: #ffd700;
-          font-weight: bold;
-          font-size: 0.8rem;
-          text-transform: uppercase;
-          background: rgba(255, 215, 0, 0.1);
-          padding: 2px 10px;
-          border-radius: 10px;
-        }
-        .pair-info {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          flex-wrap: wrap;
-          text-align: center;
-          width: 100%;
-        }
-        .name {
-          color: #fff;
-          font-size: 1.1rem;
-          word-break: break-word;
-        }
-        .gives-to {
-          color: #ffd700;
-          font-size: 0.9rem;
-          font-style: italic;
-          opacity: 0.8;
-        }
-        .controls {
-          display: flex;
-          justify-content: center;
-          margin-top: 1rem;
-        }
-        .back-btn {
-          background: #d42426;
-          color: white;
-          padding: 12px 24px;
-          border-radius: 30px;
-          border: none;
-          font-size: 1.1rem;
-          cursor: pointer;
-          transition: transform 0.2s, background 0.2s;
-          box-shadow: 0 4px 15px rgba(212, 36, 38, 0.3);
-        }
-        .back-btn:hover {
-          transform: scale(1.05);
-          background: #b31d1f;
-        }
-        @media (max-width: 480px) {
-          .summary-container {
-            padding: 1rem;
-          }
-          .name-col {
-            font-size: 0.9rem;
-          }
-          .summary-table td, .summary-table th {
-            padding: 10px 5px;
-          }
-        }
-      `}})]}):null}},8295:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>n,metadata:()=>a});var s=t(9510);t(5023);let a={title:"Secret Santa",description:"A simple Secret Santa application"};function n({children:e}){return s.jsx("html",{lang:"en",children:s.jsx("body",{children:e})})}},4097:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>s});let s=(0,t(8570).createProxy)(String.raw`/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/summary/page.js#default`)},7026:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>a});var s=t(6621);let a=e=>[{type:"image/svg+xml",sizes:"any",url:(0,s.fillMetadataSegment)(".",e.params,"icon.svg")+"?465e94faf88034dd"}]},5023:()=>{}};var r=require("../../webpack-runtime.js");r.C(e);var t=e=>r(r.s=e),s=r.X(0,[948,471,339],()=>t(5864));module.exports=s})();
+(()=>{var e={};e.id=129,e.ids=[129],e.modules={2934:e=>{"use strict";e.exports=require("next/dist/client/components/action-async-storage.external.js")},4580:e=>{"use strict";e.exports=require("next/dist/client/components/request-async-storage.external.js")},5869:e=>{"use strict";e.exports=require("next/dist/client/components/static-generation-async-storage.external.js")},399:e=>{"use strict";e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},5315:e=>{"use strict";e.exports=require("path")},7360:e=>{"use strict";e.exports=require("url")},5864:(e,r,t)=>{"use strict";t.r(r),t.d(r,{GlobalError:()=>o.a,__next_app__:()=>u,originalPathname:()=>m,pages:()=>c,routeModule:()=>p,tree:()=>l}),t(4097),t(8295),t(5866);var s=t(3191),a=t(8716),n=t(7922),o=t.n(n),i=t(5231),d={};for(let e in i)0>["default","tree","pages","GlobalError","originalPathname","__next_app__","routeModule"].indexOf(e)&&(d[e]=()=>i[e]);t.d(r,d);let l=["",{children:["summary",{children:["__PAGE__",{},{page:[()=>Promise.resolve().then(t.bind(t,4097)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/summary/page.js"]}]},{metadata:{icon:[async e=>(await Promise.resolve().then(t.bind(t,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}]},{layout:[()=>Promise.resolve().then(t.bind(t,8295)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/layout.js"],"not-found":[()=>Promise.resolve().then(t.t.bind(t,5866,23)),"next/dist/client/components/not-found-error"],metadata:{icon:[async e=>(await Promise.resolve().then(t.bind(t,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}],c=["/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/summary/page.js"],m="/summary/page",u={require:t,loadChunk:()=>Promise.resolve()},p=new s.AppPageRouteModule({definition:{kind:a.x.APP_PAGE,page:"/summary/page",pathname:"/summary",bundlePath:"",filename:"",appPaths:[]},userland:{loaderTree:l}})},4476:(e,r,t)=>{Promise.resolve().then(t.t.bind(t,2994,23)),Promise.resolve().then(t.t.bind(t,6114,23)),Promise.resolve().then(t.t.bind(t,9727,23)),Promise.resolve().then(t.t.bind(t,9671,23)),Promise.resolve().then(t.t.bind(t,1868,23)),Promise.resolve().then(t.t.bind(t,4759,23))},657:()=>{},5115:(e,r,t)=>{Promise.resolve().then(t.bind(t,4279))},4279:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>i});var s=t(326),a=t(7577),n=t(5047);function o(){let[e,r]=(0,a.useState)([]),[t,o]=(0,a.useState)(!0),[i,d]=(0,a.useState)(!1),[l,c]=(0,a.useState)(!1),[m,u]=(0,a.useState)(!1),[p,g]=(0,a.useState)(null),x=(0,n.useRouter)();(0,n.useSearchParams)();let b=async()=>{if(l&&p&&m)try{await fetch("/api/rooms",{method:"POST",body:JSON.stringify({action:"leave",roomId:p,isHost:!0})})}catch(e){console.error("Failed to close room",e)}x.push("/")};return i?(0,s.jsxs)("main",{children:[s.jsx("div",{className:"snow-container"}),s.jsx("h1",{children:"Final Secret Santa List \uD83C\uDF81"}),(0,s.jsxs)("div",{className:"summary-container fade-in",children:[s.jsx("div",{className:"summary-list",children:e.map((e,r)=>(0,s.jsxs)("div",{className:"summary-item",children:[t&&(0,s.jsxs)("span",{className:"gift-tag",children:["Gift #",e.giftNumber," - by ",e.giftOwner||e.giver]}),(0,s.jsxs)("div",{className:"pair-info",children:[s.jsx("span",{className:"name",children:s.jsx("strong",{children:e.giver})}),s.jsx("span",{className:"gives-to",children:"gives to"}),s.jsx("span",{className:"name",children:s.jsx("strong",{children:e.receiver})})]})]},r))}),(0,s.jsxs)("div",{className:"controls",style:{flexDirection:"column",gap:"1rem"},children:[l&&m&&s.jsx("button",{className:"close-room-btn",onClick:b,children:"Close Room & Back Home \uD83C\uDFE0"}),s.jsx("button",{className:"back-btn",onClick:()=>x.push("/"),children:"⬅️ Start New Game"})]})]}),s.jsx("style",{dangerouslySetInnerHTML:{__html:`
+        .summary-container { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 20px; border: 2px solid #ffd700; box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); width: 100%; box-sizing: border-box; margin-top: 2rem; }
+        .summary-list { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
+        .summary-item { background: rgba(255, 255, 255, 0.05); padding: 1.2rem; border-radius: 12px; border: 1px solid rgba(255, 215, 0, 0.2); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+        .gift-tag { color: #ffd700; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; background: rgba(255, 215, 0, 0.1); padding: 2px 10px; border-radius: 10px; }
+        .pair-info { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; text-align: center; width: 100%; }
+        .name { color: #fff; font-size: 1.1rem; word-break: break-word; }
+        .gives-to { color: #ffd700; font-size: 0.9rem; font-style: italic; opacity: 0.8; }
+        .controls { display: flex; justify-content: center; margin-top: 1rem; align-items: center; }
+        .back-btn { background: #d42426; color: white; padding: 12px 24px; border-radius: 30px; border: none; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 15px rgba(212, 36, 38, 0.3); width: 100%; }
+        .close-room-btn { background: #1a472a; color: #ffd700; padding: 12px 24px; border-radius: 30px; border: 2px solid #ffd700; font-size: 1.1rem; cursor: pointer; transition: transform 0.2s, background 0.2s; box-shadow: 0 4px 15px rgba(26, 71, 42, 0.3); width: 100%; }
+        .close-room-btn:hover { transform: scale(1.05); background: #245c38; }
+        .back-btn:hover { transform: scale(1.05); background: #b31d1f; }
+        @media (max-width: 480px) { .summary-container { padding: 1rem; } }
+      `}})]}):null}function i(){return s.jsx(a.Suspense,{fallback:s.jsx("div",{children:"Loading..."}),children:s.jsx(o,{})})}},8295:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>n,metadata:()=>a});var s=t(9510);t(5023);let a={title:"Secret Santa",description:"A simple Secret Santa application"};function n({children:e}){return s.jsx("html",{lang:"en",children:s.jsx("body",{children:e})})}},4097:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>s});let s=(0,t(8570).createProxy)(String.raw`/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/summary/page.js#default`)},7026:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>a});var s=t(6621);let a=e=>[{type:"image/svg+xml",sizes:"any",url:(0,s.fillMetadataSegment)(".",e.params,"icon.svg")+"?465e94faf88034dd"}]},5023:()=>{}};var r=require("../../webpack-runtime.js");r.C(e);var t=e=>r(r.s=e),s=r.X(0,[948,471,339],()=>t(5864));module.exports=s})();

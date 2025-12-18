@@ -1,147 +1,61 @@
-(()=>{var e={};e.id=931,e.ids=[931],e.modules={2934:e=>{"use strict";e.exports=require("next/dist/client/components/action-async-storage.external.js")},4580:e=>{"use strict";e.exports=require("next/dist/client/components/request-async-storage.external.js")},5869:e=>{"use strict";e.exports=require("next/dist/client/components/static-generation-async-storage.external.js")},399:e=>{"use strict";e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},5315:e=>{"use strict";e.exports=require("path")},7360:e=>{"use strict";e.exports=require("url")},4922:(e,t,r)=>{"use strict";r.r(t),r.d(t,{GlobalError:()=>i.a,__next_app__:()=>u,originalPathname:()=>p,pages:()=>c,routeModule:()=>m,tree:()=>d}),r(1838),r(8295),r(5866);var a=r(3191),n=r(8716),s=r(7922),i=r.n(s),o=r(5231),l={};for(let e in o)0>["default","tree","pages","GlobalError","originalPathname","__next_app__","routeModule"].indexOf(e)&&(l[e]=()=>o[e]);r.d(t,l);let d=["",{children:["__PAGE__",{},{page:[()=>Promise.resolve().then(r.bind(r,1838)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/page.js"],metadata:{icon:[async e=>(await Promise.resolve().then(r.bind(r,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}]},{layout:[()=>Promise.resolve().then(r.bind(r,8295)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/layout.js"],"not-found":[()=>Promise.resolve().then(r.t.bind(r,5866,23)),"next/dist/client/components/not-found-error"],metadata:{icon:[async e=>(await Promise.resolve().then(r.bind(r,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}],c=["/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/page.js"],p="/page",u={require:r,loadChunk:()=>Promise.resolve()},m=new a.AppPageRouteModule({definition:{kind:n.x.APP_PAGE,page:"/page",pathname:"/",bundlePath:"",filename:"",appPaths:[]},userland:{loaderTree:d}})},4476:(e,t,r)=>{Promise.resolve().then(r.t.bind(r,2994,23)),Promise.resolve().then(r.t.bind(r,6114,23)),Promise.resolve().then(r.t.bind(r,9727,23)),Promise.resolve().then(r.t.bind(r,9671,23)),Promise.resolve().then(r.t.bind(r,1868,23)),Promise.resolve().then(r.t.bind(r,4759,23))},657:()=>{},8144:(e,t,r)=>{Promise.resolve().then(r.bind(r,6777))},6777:(e,t,r)=>{"use strict";r.r(t),r.d(t,{default:()=>i});var a=r(326),n=r(7577),s=r(5047);function i(){let[e,t]=(0,n.useState)([]),[r,i]=(0,n.useState)(""),[o,l]=(0,n.useState)(!1),[d,c]=(0,n.useState)(!1),[p,u]=(0,n.useState)(!0),[m,x]=(0,n.useState)(!1),[h,g]=(0,n.useState)(null),[f,b]=(0,n.useState)(!1),j=(0,s.useRouter)(),y=r=>{let a=[...e];a.splice(r,1),t(a)},v=(r,a)=>{let n=[...e];n[r]={...n[r],giftIndex:parseInt(a)||0},t(n)},k=(e,t)=>{g(t),e.dataTransfer.effectAllowed="move",e.dataTransfer.setData("text/plain",t)},w=(r,a)=>{if(r.preventDefault(),null===h||h===a)return;let n=[...e],s=n[h];n.splice(h,1),n.splice(a,0,s),g(a),t(n)},S=()=>{g(null)};return o?(0,a.jsxs)("main",{children:[a.jsx("div",{className:"snow-container"}),a.jsx("h1",{children:"\uD83C\uDF84 FCY Secret Santa "}),(0,a.jsxs)("div",{className:"mode-selection",style:{marginBottom:"20px",display:"flex",alignItems:"center",justifyContent:"center",gap:"10px"},children:[a.jsx("span",{children:"Standard"}),(0,a.jsxs)("label",{className:"switch",children:[a.jsx("input",{type:"checkbox",checked:p,onChange:e=>u(e.target.checked)}),a.jsx("span",{className:"slider round"})]}),a.jsx("span",{children:"Randomize Gift"})]}),(0,a.jsxs)("div",{className:"mode-selection",style:{marginBottom:"20px",display:"flex",alignItems:"center",justifyContent:"center",gap:"10px"},children:[a.jsx("span",{children:"OTT Mode: Mix Source"}),(0,a.jsxs)("label",{className:"switch",children:[a.jsx("input",{type:"checkbox",checked:m,onChange:e=>x(e.target.checked)}),a.jsx("span",{className:"slider round"})]}),a.jsx("span",{children:"Single"})]}),(0,a.jsxs)("form",{className:"input-group",onSubmit:a=>{a&&a.preventDefault();let n=r.trim();if(""!==n){let r=e.length>0?Math.max(...e.map(e=>e.giftIndex)):0;t(e=>[...e,{name:n,giftIndex:r+1}]),i("")}},children:[a.jsx("input",{type:"text",value:r,onChange:e=>i(e.target.value),placeholder:"Enter participant name"}),a.jsx("button",{type:"submit",children:"Add"})]}),(0,a.jsxs)("div",{style:{display:"flex",justifyContent:"space-between",alignItems:"center",width:"100%",maxWidth:"400px",margin:"0 auto",gap:"10px",flexWrap:"wrap"},children:[(0,a.jsxs)("div",{style:{display:"flex",alignItems:"center",gap:"10px"},children:[(0,a.jsxs)("h3",{children:["Participants (",e.length,")"]}),p&&(0,a.jsxs)("div",{style:{display:"flex",alignItems:"center",gap:"8px",marginLeft:"5px"},children:[a.jsx("span",{style:{fontSize:"0.7rem",opacity:.7,color:"#ffd700",textTransform:"uppercase",letterSpacing:"1px"},children:"Indices"}),(0,a.jsxs)("label",{className:"switch",style:{transform:"scale(0.7)"},children:[a.jsx("input",{type:"checkbox",checked:f,onChange:e=>b(e.target.checked)}),a.jsx("span",{className:"slider round"})]})]})]}),e.length>0&&a.jsx("button",{onClick:()=>{c(!0)},className:"remove-all-btn",children:"Remove All"})]}),a.jsx("ul",{children:e.map((e,t)=>(0,a.jsxs)("li",{draggable:!0,onDragStart:e=>k(e,t),onDragOver:e=>w(e,t),onDragEnd:S,className:h===t?"dragging":"",style:{wordBreak:"break-word",display:"flex",alignItems:"center",gap:"10px",cursor:"grab"},children:[a.jsx("span",{style:{color:"#ffd700",opacity:.5,fontSize:"0.8rem",cursor:"move"},children:"☰"}),a.jsx("span",{style:{flex:1},children:e.name}),p&&f&&(0,a.jsxs)("div",{style:{display:"flex",alignItems:"center",gap:"5px"},children:[a.jsx("span",{style:{fontSize:"0.8rem",opacity:.7},children:"Gift #"}),a.jsx("input",{type:"number",value:e.giftIndex,onChange:e=>v(t,e.target.value),style:{width:"50px",padding:"2px 5px",background:"rgba(255,255,255,0.1)",border:"1px solid #ffd700",color:"#fff",borderRadius:"4px"}})]}),a.jsx("button",{onClick:()=>y(t),style:{padding:"4px 8px",background:"transparent",color:"#f8e3a1",border:"none",cursor:"pointer",flexShrink:0},children:"✕"})]},t))}),e.length>=2&&a.jsx("button",{className:"start-btn",onClick:()=>{if(e.length<2){alert("Need at least 2 participants");return}if(new Set(e.map(e=>e.name.toLowerCase().trim())).size!==e.length){alert("Each participant must have a unique name.");return}if(p&&new Set(e.map(e=>e.giftIndex)).size!==e.length){alert("Each participant must have a unique Gift #.");return}j.push("/results")},children:"Start Game ✨"}),d&&a.jsx("div",{className:"modal-overlay",children:(0,a.jsxs)("div",{className:"modal-content",children:[a.jsx("h3",{children:"Clear All Participants? \uD83C\uDF85"}),a.jsx("p",{children:"This will remove everyone from the list. Are you sure?"}),(0,a.jsxs)("div",{className:"modal-actions",children:[a.jsx("button",{className:"cancel-btn",onClick:()=>c(!1),children:"Cancel"}),a.jsx("button",{className:"confirm-btn",onClick:()=>{t([]),c(!1)},children:"Remove All"})]})]})}),a.jsx("style",{dangerouslySetInnerHTML:{__html:`
-        .modal-overlay {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: rgba(0, 0, 0, 0.7);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          z-index: 1000;
-          backdrop-filter: blur(5px);
+(()=>{var e={};e.id=931,e.ids=[931],e.modules={2934:e=>{"use strict";e.exports=require("next/dist/client/components/action-async-storage.external.js")},4580:e=>{"use strict";e.exports=require("next/dist/client/components/request-async-storage.external.js")},5869:e=>{"use strict";e.exports=require("next/dist/client/components/static-generation-async-storage.external.js")},399:e=>{"use strict";e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},5315:e=>{"use strict";e.exports=require("path")},7360:e=>{"use strict";e.exports=require("url")},4922:(e,r,t)=>{"use strict";t.r(r),t.d(r,{GlobalError:()=>i.a,__next_app__:()=>p,originalPathname:()=>m,pages:()=>c,routeModule:()=>u,tree:()=>l}),t(1838),t(8295),t(5866);var n=t(3191),s=t(8716),a=t(7922),i=t.n(a),o=t(5231),d={};for(let e in o)0>["default","tree","pages","GlobalError","originalPathname","__next_app__","routeModule"].indexOf(e)&&(d[e]=()=>o[e]);t.d(r,d);let l=["",{children:["__PAGE__",{},{page:[()=>Promise.resolve().then(t.bind(t,1838)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/page.js"],metadata:{icon:[async e=>(await Promise.resolve().then(t.bind(t,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}]},{layout:[()=>Promise.resolve().then(t.bind(t,8295)),"/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/layout.js"],"not-found":[()=>Promise.resolve().then(t.t.bind(t,5866,23)),"next/dist/client/components/not-found-error"],metadata:{icon:[async e=>(await Promise.resolve().then(t.bind(t,7026))).default(e)],apple:[],openGraph:[],twitter:[],manifest:void 0}}],c=["/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/page.js"],m="/page",p={require:t,loadChunk:()=>Promise.resolve()},u=new n.AppPageRouteModule({definition:{kind:s.x.APP_PAGE,page:"/page",pathname:"/",bundlePath:"",filename:"",appPaths:[]},userland:{loaderTree:l}})},4476:(e,r,t)=>{Promise.resolve().then(t.t.bind(t,2994,23)),Promise.resolve().then(t.t.bind(t,6114,23)),Promise.resolve().then(t.t.bind(t,9727,23)),Promise.resolve().then(t.t.bind(t,9671,23)),Promise.resolve().then(t.t.bind(t,1868,23)),Promise.resolve().then(t.t.bind(t,4759,23))},657:()=>{},8144:(e,r,t)=>{Promise.resolve().then(t.bind(t,6777))},6777:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>a});var n=t(326),s=t(5047);function a(){let e=(0,s.useRouter)();return(0,n.jsxs)("main",{children:[n.jsx("div",{className:"snow-container"}),n.jsx("h1",{children:"\uD83C\uDF84 FCY Secret Santa"}),(0,n.jsxs)("div",{className:"mode-container fade-in",children:[n.jsx("p",{className:"description",children:"Choose how you want to play this year!"}),(0,n.jsxs)("div",{className:"selection-grid",children:[(0,n.jsxs)("div",{className:"mode-card",onClick:()=>e.push("/offline"),children:[n.jsx("div",{className:"icon",children:"\uD83C\uDFE0"}),n.jsx("h3",{children:"Offline Mode"}),n.jsx("p",{children:"Perfect for when everyone is together. Manage participants on one device."}),n.jsx("button",{className:"select-btn",children:"Start Offline"})]}),(0,n.jsxs)("div",{className:"mode-card",onClick:()=>e.push("/online"),children:[n.jsx("div",{className:"icon",children:"\uD83C\uDF10"}),n.jsx("h3",{children:"Online Mode"}),n.jsx("p",{children:"Join from your own device! Create a room and invite your friends."}),n.jsx("button",{className:"select-btn",children:"Go Online"})]})]})]}),n.jsx("style",{dangerouslySetInnerHTML:{__html:`
+        .mode-container {
+          text-align: center;
+          margin-top: 2rem;
         }
-        .modal-content {
-          background: #1a472a;
+        .description {
+          color: #f8e3a1;
+          font-size: 1.1rem;
+          margin-bottom: 2rem;
+          opacity: 0.9;
+        }
+        .selection-grid {
+          display: flex;
+          gap: 1.5rem;
+          flex-direction: column;
+        }
+        .mode-card {
+          background: rgba(255, 255, 255, 0.1);
           padding: 2rem;
           border-radius: 20px;
           border: 2px solid #ffd700;
-          text-align: center;
-          max-width: 400px;
-          width: 90%;
-          box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-          animation: modalAppear 0.3s ease-out;
-        }
-        @keyframes modalAppear {
-          from { opacity: 0; transform: scale(0.9); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        .modal-content h3 {
-          color: #ffd700;
-          margin-top: 0;
-        }
-        .modal-content p {
-          color: #f8e3a1;
-          margin-bottom: 2rem;
-        }
-        .modal-actions {
+          cursor: pointer;
+          transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
           display: flex;
-          gap: 1rem;
-          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
         }
-        .modal-actions button {
-          padding: 0.8rem 1.5rem;
-          border-radius: 50px;
-          cursor: pointer;
-          font-weight: bold;
-          transition: transform 0.2s;
+        .mode-card:hover {
+          transform: translateY(-5px);
+          background: rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
-        .modal-actions button:hover {
-          transform: scale(1.05);
+        .mode-card .icon {
+          font-size: 3rem;
+          margin-bottom: 0.5rem;
         }
-        .cancel-btn {
-          background: transparent;
-          color: #f8e3a1;
-          border: 1px solid #f8e3a1;
+        .mode-card h3 {
+          margin: 0;
+          color: #ffd700;
         }
-        .confirm-btn {
-          background: #ff4d4d;
-          color: white;
-          border: none;
-          box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
+        .mode-card p {
+          font-size: 0.9rem;
+          color: #fff;
+          opacity: 0.8;
+          margin: 0;
+          line-height: 1.4;
         }
-        .remove-all-btn {
-          background: transparent;
-          color: #ff4d4d;
-          border: 1px solid #ff4d4d;
-          padding: 4px 12px;
-          borderRadius: 20px;
-          cursor: pointer;
-          font-size: 0.8rem;
-          transition: background 0.2s;
+        .select-btn {
+          margin-top: 10px;
+          pointer-events: none; /* Let the card click handle it */
         }
-        .remove-all-btn:hover {
-          background: rgba(255, 77, 77, 0.1);
-        }
-        
-        li.dragging {
-          opacity: 0.5;
-          background: rgba(255, 215, 0, 0.1);
-          border: 1px dashed #ffd700;
-        }
-
-        /* Toggle Switch */
-        .switch {
-          position: relative;
-          display: inline-block;
-          width: 50px;
-          height: 24px;
-        }
-        .switch input {
-          opacity: 0;
-          width: 0;
-          height: 0;
-        }
-        .slider {
-          position: absolute;
-          cursor: pointer;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: rgba(255, 255, 255, 0.1);
-          transition: .4s;
-          border: 1px solid #ffd700;
-        }
-        .slider:before {
-          position: absolute;
-          content: "";
-          height: 16px;
-          width: 16px;
-          left: 3px;
-          bottom: 3px;
-          background-color: #ffd700;
-          transition: .4s;
-        }
-        input:checked + .slider {
-          background-color: #1a472a;
-        }
-        input:checked + .slider:before {
-          transform: translateX(26px);
-        }
-        .slider.round {
-          border-radius: 24px;
-        }
-        .slider.round:before {
-          border-radius: 50%;
-        }
-
-        @media (max-width: 480px) {
-          .input-group {
-            flex-direction: column;
-            width: 100%;
+        @media (min-width: 600px) {
+          .selection-grid {
+            flex-direction: row;
           }
-          .input-group input {
-            border-radius: 50px;
-            margin-bottom: 0.5rem;
-          }
-          .input-group button {
-            border-radius: 50px;
-            width: 100%;
-          }
-          h1 {
-            font-size: 1.8rem;
+          .mode-card {
+            flex: 1;
           }
         }
-      `}})]}):null}},8295:(e,t,r)=>{"use strict";r.r(t),r.d(t,{default:()=>s,metadata:()=>n});var a=r(9510);r(5023);let n={title:"Secret Santa",description:"A simple Secret Santa application"};function s({children:e}){return a.jsx("html",{lang:"en",children:a.jsx("body",{children:e})})}},1838:(e,t,r)=>{"use strict";r.r(t),r.d(t,{default:()=>a});let a=(0,r(8570).createProxy)(String.raw`/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/page.js#default`)},7026:(e,t,r)=>{"use strict";r.r(t),r.d(t,{default:()=>n});var a=r(6621);let n=e=>[{type:"image/svg+xml",sizes:"any",url:(0,a.fillMetadataSegment)(".",e.params,"icon.svg")+"?465e94faf88034dd"}]},5023:()=>{}};var t=require("../webpack-runtime.js");t.C(e);var r=e=>t(t.s=e),a=t.X(0,[948,471,339],()=>r(4922));module.exports=a})();
+      `}})]})}},8295:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>a,metadata:()=>s});var n=t(9510);t(5023);let s={title:"Secret Santa",description:"A simple Secret Santa application"};function a({children:e}){return n.jsx("html",{lang:"en",children:n.jsx("body",{children:e})})}},1838:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>n});let n=(0,t(8570).createProxy)(String.raw`/Users/nguyenhoangdung/WebstormProjects/secretsanta/src/app/page.js#default`)},7026:(e,r,t)=>{"use strict";t.r(r),t.d(r,{default:()=>s});var n=t(6621);let s=e=>[{type:"image/svg+xml",sizes:"any",url:(0,n.fillMetadataSegment)(".",e.params,"icon.svg")+"?465e94faf88034dd"}]},5023:()=>{}};var r=require("../webpack-runtime.js");r.C(e);var t=e=>r(r.s=e),n=r.X(0,[948,471,339],()=>t(4922));module.exports=n})();
